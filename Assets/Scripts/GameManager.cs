@@ -5,6 +5,7 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
+    // ENCAPSULATION
     public static GameManager Instance { get; private set; }
     
     public string playerName;

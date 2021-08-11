@@ -6,18 +6,23 @@ using TMPro;
 public class PlayerBehavior : MonoBehaviour
 {
     [Header("Movement")]
-    private Vector3 playerVelocity;
-    private bool groundedPlayer;
     [SerializeField]
     private float playerSpeed;
     [SerializeField]
     private float jumpHeight;
     [SerializeField]
     private float gravityValue;
+    private bool groundedPlayer;
+    private Vector3 playerVelocity;
+
+    [Header("Inventory")]
+    [SerializeField]
+    private int gold;
 
     [Header("Components")]
-    private CharacterController controller;
     public TMP_Text playerNameText;
+    public TMP_Text goldText;
+    private CharacterController controller;
 
     private void Start()
     {
@@ -25,8 +30,9 @@ public class PlayerBehavior : MonoBehaviour
 
         string name = "PlayerName";
         if (GameManager.Instance != null) {
-            playerNameText.text = GameManager.Instance.playerName;
+            name = GameManager.Instance.playerName;
         }
+        playerNameText.text = name;
     }
 
     void Update()
@@ -53,5 +59,11 @@ public class PlayerBehavior : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+    }
+
+    public void AddGold(int amount)
+    {
+        gold += amount;
+        goldText.text = gold.ToString();
     }
 }
