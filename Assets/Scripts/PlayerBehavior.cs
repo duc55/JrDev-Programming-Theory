@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerBehavior : MonoBehaviour
 {
@@ -16,10 +17,16 @@ public class PlayerBehavior : MonoBehaviour
 
     [Header("Components")]
     private CharacterController controller;
+    public TMP_Text playerNameText;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+
+        string name = "PlayerName";
+        if (GameManager.Instance != null) {
+            playerNameText.text = GameManager.Instance.playerName;
+        }
     }
 
     void Update()
