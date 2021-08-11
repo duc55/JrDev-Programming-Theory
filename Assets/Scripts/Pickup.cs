@@ -13,7 +13,7 @@ public class Pickup : MonoBehaviour
     public PickupType type;
     public int value;
 
-    void OnPlayerPickup(PlayerBehavior player)
+    protected void OnPlayerPickup(PlayerBehavior player)
     {
         switch (type)
         {
