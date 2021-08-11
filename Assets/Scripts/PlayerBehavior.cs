@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
 {
-    private CharacterController controller;
+    [Header("Movement")]
     private Vector3 playerVelocity;
     private bool groundedPlayer;
-    public float playerSpeed;
-    public float jumpHeight;
-    public float gravityValue;
+    [SerializeField]
+    private float playerSpeed;
+    [SerializeField]
+    private float jumpHeight;
+    [SerializeField]
+    private float gravityValue;
+
+    [Header("Components")]
+    private CharacterController controller;
 
     private void Start()
     {
